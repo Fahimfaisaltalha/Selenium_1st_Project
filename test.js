@@ -56,7 +56,11 @@ async function testRun() {
     await driver.findElement(By.id("permanentAddress")).sendKeys("Sherpur Bogura");
     await driver.sleep(3000);
 
-
+// Submit button
+const submitBtn = await driver.findElement(By.id("submit"));
+await driver.executeScript("arguments[0].scrollIntoView({block: 'center'});", submitBtn);
+await driver.sleep(1000);
+await submitBtn.click();
 
     // Close the browser
      await driver.sleep(5000);
