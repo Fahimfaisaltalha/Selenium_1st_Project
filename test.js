@@ -32,11 +32,31 @@ async function testRun() {
     await textBox.click();
     await driver.sleep(3000);
 
-    await driver.findElement(By.className("col-md-9 col-sm-12")).click();
+    await driver.findElement(By.id("userName")).click();
     await driver.sleep(3000);
 
     await driver.findElement(By.xpath("//input[@placeholder='Full Name']")).sendKeys("Fahim Faisal Talha");
-    // console.log("Current URL:", await driver.getCurrentUrl());
+    await driver.sleep(3000);
+
+    await driver.findElement(By.id("userEmail")).click();
+    await driver.sleep(3000);
+
+    await driver.findElement(By.xpath("//input[@placeholder='name@example.com']")).sendKeys("Fahim@email.com");
+    await driver.sleep(3000);
+
+    await driver.findElement(By.id("currentAddress")).click();
+    await driver.sleep(3000);
+
+    await driver.findElement(By.xpath("//textarea[@placeholder='Current Address']")).sendKeys("Dhaka Bangladesh");
+    await driver.sleep(3000);
+
+    await driver.findElement(By.id("permanentAddress")).click();
+    await driver.sleep(3000);
+
+    await driver.findElement(By.id("permanentAddress")).sendKeys("Sherpur Bogura");
+    await driver.sleep(3000);
+
+
 
     // Close the browser
      await driver.sleep(5000);
