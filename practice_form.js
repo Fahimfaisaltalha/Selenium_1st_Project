@@ -1,5 +1,5 @@
 
-import { Browser, Builder, By, Key } from "selenium-webdriver";
+import { Browser, Builder, By, until } from "selenium-webdriver";
 
 const driver = new Builder().forBrowser(Browser.CHROME).build();
 
@@ -17,13 +17,34 @@ async function testRun() {
     await driver.manage().window().maximize();
     await driver.sleep(1000);
 
-    await driver.findElement(By.xpath("//h5[text()='Forms']")).click();
+    const forms = await driver.findElement(By.xpath("//h5[text()='Forms']"));
+    await driver.executeScript(
+        "arguments[0].scrollIntoView({block: 'start'});",
+        forms
+    );
+    await driver.executeScript("arguments[0].click();", forms);
 
 
-    await driver.findElement(By.xpath("//span[text()='Practice Form']")).click();
+    const practiceForm = await driver.wait(
+        until.elementLocated(By.xpath("//span[text()='Practice Form']/ancestor::a")),
+        10000
+    );
+    await driver.executeScript(
+        "arguments[0].scrollIntoView({block: 'start'});",
+        practiceForm
+    );
+    await driver.executeScript("arguments[0].click();", practiceForm);
   
 
-    await driver.findElement(By.id("firstName")).sendKeys("Fahim Faisal");
+    await driver.wait(
+        until.urlContains("/automation-practice-form"),
+        10000
+    );
+    const firstName = await driver.wait(
+        until.elementLocated(By.id("firstName")),
+        10000
+    );
+    await firstName.sendKeys("Fahim Faisal");
  
 
     await driver.findElement(By.id("lastName")).sendKeys("Talha");
