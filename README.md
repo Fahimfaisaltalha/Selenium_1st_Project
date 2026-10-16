@@ -88,6 +88,24 @@ node .\practice_form.js
 
 The browser is intentionally visible while the test runs so that each automation step can be observed.
 
+### Practice Form Automation Demonstration
+
+The following video demonstrates the complete browser interaction after running the Practice Form script:
+
+[Watch the Practice Form automation video](https://drive.google.com/file/d/1lfnRLjxQVqtugBItEJfsxcblunLgw70T/view?usp=sharing)
+
+The demonstration shows the script:
+
+1. Opening the DemoQA website in Chrome.
+2. Navigating to **Forms** and then **Practice Form**.
+3. Scrolling navigation targets into a usable position on the page.
+4. Waiting for the Practice Form page and its fields to load.
+5. Filling the personal information fields.
+6. Selecting gender, date of birth, subject, hobby, state, and city.
+7. Uploading the configured image.
+8. Entering the current address and submitting the form.
+9. Closing the browser after the workflow completes.
+
 ### Updating Test Data
 
 The main test data is declared near the top of `practice_form.js`:
@@ -286,4 +304,3 @@ DemoQA is a public website and its markup, timing, or availability may change. I
 - The Text Box report workflow includes assertions and is the recommended example for learning test-result validation.
 - The scripts open a real Chrome browser and are not configured for headless execution.
 - The local image path must be customized before running the Practice Form on another machine.
-
